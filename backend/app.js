@@ -1,3 +1,4 @@
+
 require('dotenv').config() // invoke config() - going to attach those env vars to the process object
 const express = require('express')
 
@@ -12,3 +13,4 @@ app.get('/', (req,res) => {
 app.listen(process.env.PORT, () => {
     console.log('listening')
 });
+
