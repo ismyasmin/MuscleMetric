@@ -2,6 +2,7 @@
 
 //register the express app
 const express = require('express')
+const mongoose = require('mongoose')
 const workoutRouter = require('./routes/workouts')
 
 // starts up express app 
@@ -14,7 +15,15 @@ app.use(express.json())
 // routes
 app.use('/api/workouts', workoutRouter) //  when this request is fired, use routes in workoutRoutes which is added onto '/api/workouts'
 
-// listen for requests
-app.listen( () => {
-    console.log('listening on port 4000')
-});
+// connect to db
+mongoose.connect(process.env.MONGO_URI) // asynchronous so it takes bit of time, it returns a promise
+ .then(() =>{
+    // listen for requests once connected to db
+    app.listen(process.env.PORT, () => {
+        console.log('connected to db & listening on port');
+    });
+ })
+ .catch((err)=>{
+    console.log(err);
+ })
+ 
