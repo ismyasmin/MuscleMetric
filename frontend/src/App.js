@@ -5,11 +5,15 @@ import './App.css';
 
 // pages & components
 import Home from './pages/Home'
+import Navbar from './components/Navbar'
 
 
+ // can output above all of the pages but still inside the BorwserRouter otherwise cant use the Link component because everything to do with the router needs to be inside BrowserRouter
+ // the rotuer needs to be inside 
 function App() {
   return (
     <BrowserRouter>  {/*surronds everything that needs to use the routing system */}
+    <Navbar />
     <div className="pages"> {/* all pages inside here */}
           <Routes>
             <Route 
