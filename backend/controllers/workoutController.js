@@ -52,7 +52,7 @@ const deleteWorkout = async (req, res) => {
     }
 
     // find document & delete it where the _id is equal to id then returns a response which is the document that was deleted
-    const workout = await Workout.findOneAndDelete({i_id: id}) /// in mongoDB the property name _id 
+    const workout = await Workout.findOneAndDelete({_id: id}) /// in mongoDB the property name _id 
 
     if(!workout) {
         return res.status(404).json({error: 'Workout not found'})
