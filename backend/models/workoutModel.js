@@ -8,11 +8,11 @@ const workoutSchema = new Schema({ // creates a new schema, first argu: passing 
         required: true
     },
     load: {
-        type: Number,
+        type: [String, Number],
         required: true
     },
     reps: {
-        type: Number,
+        type: [String, Number],
         required: true
     },
 }, {timestamps: true}); // second argu: automatically generates time stamp properties when a workout is created or updated
