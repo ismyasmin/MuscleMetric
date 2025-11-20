@@ -1,5 +1,5 @@
 // entry file
-
+require('dotenv').config()
 //register the express app
 const express = require('express')
 const mongoose = require('mongoose')
@@ -16,7 +16,7 @@ app.use(express.json())
 app.use('/api/workouts', workoutRouter) //  when this request is fired, use routes in workoutRoutes which is added onto '/api/workouts'
 
 // connect to db
-mongoose.connect(process.env.MONGO_URI) // asynchronous so it takes bit of time, it returns a promise
+mongoose.connect(process.env.MONG_URI) // asynchronous so it takes bit of time, it returns a promise
  .then(() =>{
     // listen for requests once connected to db
     app.listen(process.env.PORT, () => {
