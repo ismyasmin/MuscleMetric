@@ -16,8 +16,22 @@ router.get('/:id', (req, res) => {
 }) // : represents a route parameter whereby this can change
 
 // POST a new workout to create one
-router.post('/', (req, res) =>{
-    res.json({mssg: 'POST a new workout'})
+const Workout = require('../models/workoutModel') // workout model 
+
+// POST a new workout to create one
+// creat a new workout document inside the workouts collection, gonna use workouts model to do this
+
+router.post('/', async(req, res) =>{  // changing handler function to an asynchronous function to use await 
+    console.log('POST /api/workouts hit')
+    const {title, reps, load} = req.body
+    try {
+        // represents document created
+        const workout = await Workout.create({title, reps, load}) // asynchronous
+        res.status(200).json(workout) // json sent back is the workout document
+    }catch (err){
+        res.status(400).json({error: err.message})
+
+    }
 })
 
 // DELETE a workout
