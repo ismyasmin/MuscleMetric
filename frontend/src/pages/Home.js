@@ -1,5 +1,7 @@
 import {useEffect, useState} from 'react'
 
+// components
+import WorkoutDetails from '../components/WorkoutDetails'
 const Home = () => {
     const [workouts, setWorkouts] = useState(null) // update workouts using setWorkouts, value of this is gonna be the array of data (const json)
 
@@ -25,7 +27,8 @@ const Home = () => {
     return (
         <div className="home">
             {workouts && workouts.map((workout) => ( // if theres a value for workouts, then map through workouts
-                    <p key={workout._id}>{workout.title}</p>
+              
+                    <WorkoutDetails key={workout._id} workout={workout}/> // pass in the workout as a prop
                 ))} {/*normal parentheses not curly braces because returning template*/}
         </div>
     )
