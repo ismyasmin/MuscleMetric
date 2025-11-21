@@ -1,13 +1,137 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+/* CSS variables defined at root level for consistent theming */
+   :root {
+     --primary: #49d0df; /* Primary accent color used for headings, buttons, etc. */
+     --error: #e7195a;   /* Color for error messages and error borders */
+   }
+   
+   /* Base document styling */
+   body {
+     background: #f1f1f1;   /* Light gray background for the entire app */
+     margin: 0;               /* Removes default browser margin */
+     font-family: "Poppins";  /* Sets default font for all text */
+   }
+   
+   /* Header top bar styling */
+   header {
+     background: #fff; /* White background for clean, modern look */
+   }
+   
+   /* Header content container:
+      - Centers content horizontally
+      - Restricts width to avoid stretching on large screens
+      - Uses flexbox to align logo and navigation */
+   header .container {
+     max-width: 1400px;     /* Maximum width of header content */
+     margin: 0 auto;        /* Centers the container */
+     padding: 10px 20px;    /* Spacing around header content */
+     display: flex;         /* Enables flexbox layout */
+     align-items: center;   /* Vertically aligns items to the center */
+     justify-content: space-between; /* Spreads items to opposite sides */
+   }
+   
+   /* Header links  */
+   header a {
+     color: #0b6f73;        /* Dark gray text for good contrast */
+     text-decoration: none;  /* Removes underline for cleaner look */
+   }
+   
+   /* Page wrapper:
+      Restricts main content width and centers the content */
+   .pages {
+     max-width: 1400px; /* Prevents excessively wide layouts */
+     padding: 20px;     /* Adds spacing around page content */
+     margin: 0 auto;    /* Centers content horizontally */
+   }
+   
+   
+   
+     /* Homepage grid layout*/
+   
+   /* Home section layout: two-column grid (workout list + form) */
+   .home {
+     display: grid;                    /* Enables CSS Grid layout */
+     grid-template-columns: 3fr 1fr;   /* 3:1 ratio (list:form) */
+     gap: 100px;                       /* Large spacing between columns */
+   }
+   
+   
+   
+   /* Workout Details*/
+   
+   /* Individual workout box/card */
+   .workout-details {
+     background: #fff;               /* White card background */
+     border-radius: 4px;               /* Slightly rounded corners */
+     margin: 20px auto;                /* Adds vertical spacing between cards */
+     padding: 20px;                    /* Internal spacing around content */
+     position: relative;               /* Needed to position delete icon */
+     box-shadow: 2px 2px 5px rgba(0,0,0,0.05); /* Soft shadow for depth */
+   }
+   
+   /* Workout title (exercise name) */
+   .workout-details h4 {
+     margin: 0 0 10px 0;     /* Removes top margin + adds spacing below title */
+     font-size: 1.2em;       /* Larger text size */
+     color: var(--primary);  /* Uses theme primary color */
+   }
+   
+   /* Workout detail text (load, reps, timestamps) */
+   .workout-details p {
+     margin: 0;             /* No margin to keep text compact */
+     font-size: 0.9em;      /* Slightly smaller text */
+     color: #555;         /* Medium gray for subtle secondary text */
+   }
+   
+   /* Delete icon (the small "x" span) */
+   .workout-details span {
+     position: absolute;     /* Allows free placement inside the card */
+     top: 20px;              /* Distance from top of card */
+     right: 20px;            /* Distance from right edge of card */
+     cursor: pointer;        /* Cursor becomes a pointer on hover */
+     background: #f1f1f1;  /* Light gray circle behind the icon */
+     padding: 6px;           /* Size of clickable area */
+     border-radius: 50%;     /* Makes the background a perfect circle */
+     color: #333;          /* Icon color */
+   }
+   
+   
+   
+   /* CREATE NEW WORKOUT FORM STYLING */
+   
+   /* Make labels + inputs appear vertically stacked */
+   label, input {
+     display: block; /* Forces block-level display (each on its own line) */
+   }
+   
+   /* Input fields styling */
+   input {
+     padding: 10px;             /* Comfortable typing area */
+     margin-top: 10px;          /* Spacing between label and input */
+     margin-bottom: 20px;       /* Spacing between each input field */
+     width: 100%;               /* Full width of the form column */
+     border: 1px solid #ddd;  /* Light border for visibility */
+     border-radius: 4px;        /* Slightly rounded corners */
+     box-sizing: border-box;    /* Ensures padding doesn't expand width */
+   }
+   
+   /* Submit button styling */
+   form button {
+     background: var(--primary); /* Green button background */
+     border: 0;                  /* Removes default button border */
+     color: #fff;              /* White button text */
+     padding: 10px;              /* Button spacing */
+     font-family: "Poppins";     /* Consistent font */
+     border-radius: 4px;         /* Rounded button edges */
+     cursor: pointer;            /* Pointer cursor on hover */
+   }
+   
+   /* Error message container */
+   div.error {
+     padding: 10px;                 /* Padding around error text */
+     background: #ffefef;         /* Light red background for visibility */
+     border: 1px solid var(--error);/* Red border for emphasis */
+     color: var(--error);           /* Red text for clarity */
+     border-radius: 4px;            /* Smooth rounded edges */
+     margin: 20px 0;                /* Spacing above and below error box */
+   }
+   
